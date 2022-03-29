@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <title>bank</title>
+</head>
+<body>
+    
+    <div class="loggedPageContainer">
+        <nav>
+            <ul>
+                <li><a href="/transfer">do transfer</a></li>
+                <li><a href="/credit">take credit</a></li>
+                <li><a href="/logout">logout</a></li>
+            </ul>
+            <div class="user-data">
+                <p>welcome </p>
+                <p th:text="${AuthUser.firstName}"></p>
+                <p th:text="${AuthUser.lastName}"></p>
+            </div>
+        </nav>
+
+        <div class="money-section">
+            <span>
+                <h1>money: </h1>
+                <h1 th:text="${AuthUser.money}"></h1>
+            </span>
+
+            <span>
+                <h1>account number: </h1>
+                <h1 th:text="${AuthUser.accountNumber}"></h1>
+            </span>
+        </div>
+
+        <div class="credit-section">
+            <h1>your credits:</h1>
+            <div th:each="credit : ${credits}" class="credit-list">
+                <p th:text="${credit.creditName}"></p>
+                <p th:text="${credit.money}"></p>
+            </div>
+        </div>
+      
+        
+       
+
+
+    </div>
+        
+</body>
+</html>
